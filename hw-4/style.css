@@ -1,0 +1,44 @@
+body {
+    background-color: #202020;
+}
+
+table {
+    color: #fff;
+    width: 90%;
+    margin: auto;
+    table-layout: fixed;
+}
+
+td.id {
+    width: 0.05em;
+}
+
+td.name {
+    width: 0.2em;
+}
+
+td.region {
+    width: 0.2em;
+}
+
+td.population {
+    width: 0.15em;
+}
+
+td.area {
+    width: 0.1em;
+}
+
+td.currencies {
+    width: 0.25em;
+}
+
+td.flag {
+    width: 0.05em;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
