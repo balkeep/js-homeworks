@@ -1,0 +1,33 @@
+table {
+    table-layout: fixed;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+
+}
+
+thead tr td{
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.id {
+    width: 0.1em;
+}
+.name {
+    width: 0.5em;
+}
+
+.code {
+    width: 0.2em;
+}
+
+.rate {
+    width: 0.2em;
+}
+
+#date {
+    color: mediumvioletred;
+}
+
