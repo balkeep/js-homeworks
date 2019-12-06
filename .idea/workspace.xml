@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="335b866a-6328-4977-a226-6aebb7d02b77" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw-4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/hw-4/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw-4/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/hw-4/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw-4/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/hw-4/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +23,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/hw-4" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -29,7 +32,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -67,10 +70,15 @@
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="772" y="277" key="#Plugins/0.0.2560.1410/-2560.0.2560.1440@0.0.2560.1410" timestamp="1575378128983" />
-    <state x="119" y="224" width="1942" height="883" key="SettingsEditor" timestamp="1575382069683">
+    <state x="1010" y="399" key="FileChooserDialogImpl" timestamp="1575585224406">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="119" y="224" width="1942" height="883" key="SettingsEditor/0.0.2560.1410/-2560.0.2560.1440@0.0.2560.1410" timestamp="1575382069683" />
+    <state x="1010" y="399" key="FileChooserDialogImpl/0.0.2560.1410/-2560.0.2560.1440@0.0.2560.1410" timestamp="1575585224406" />
+    <state x="384" y="467" width="1139" height="793" key="SettingsEditor" timestamp="1575583226044">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="68" y="0" width="1139" height="793" key="SettingsEditor/0.0.1463.793@0.0.1463.793" timestamp="1575479459849" />
+    <state x="384" y="467" width="1942" height="883" key="SettingsEditor/0.0.2560.1410/-2560.0.2560.1440@0.0.2560.1410" timestamp="1575583226044" />
     <state x="852" y="329" key="run.anything.popup" timestamp="1575382163620">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>

@@ -3,17 +3,47 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+
+    <script
+            crossorigin="anonymous"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <title>Hw-4</title>
 </head>
 
 <body>
-    <table id="countries"></table>
-    <script src="script.js"></script>
+<div class="filters form-group">
+    <label for="search-pop-area-currency"></label>
+    <input class="form-control" id="search-pop-area-currency" placeholder="Search by population, area or currency as a string"
+           type="text">
+
+    <label for="country-selector">Select a country</label>
+    <select class="form-control" id="country-selector">
+
+    </select>
+</div>
+
+<table class="table table-striped table-dark">
+    <thead>
+    <tr>
+        <td class="id">ID</td>
+        <td class="name">Name</td>
+        <td class="region">Region</td>
+        <td class="population">Population</td>
+        <td class="area">Area</td>
+        <td class="currencies">Currencies</td>
+        <td class="flag">Flag</td>
+    </tr>
+    </thead>
+    <tbody id="countries">
+    </tbody>
+</table>
+<script src="script.js"></script>
 </body>
 
 </html>
