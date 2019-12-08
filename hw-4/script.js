@@ -25,7 +25,7 @@ function composeTable(countries) {
 
 let composeCountrySelector = countries => {
     let countryNames = countries.map(country => country.name);
-    return "<option>" + countryNames.join("</option><option>").concat("</option>");
+    return "<option>" + countryNames.join("</option><option>") + "</option>";
 }
 
 $(document).ready(function () {
@@ -60,7 +60,7 @@ $(document).ready(function () {
         $("#countries").html(composeTable(countriesFiltered.filter(element => {
             let popFilter = (`${element.population}`.indexOf($(e.currentTarget).val()) >= 0);
             let areaFilter = (`${element.area}`.indexOf($(e.currentTarget).val()) >= 0);
-            let currFilter = (`${element.currencies}`.indexOf($(e.currentTarget).val()) >= 0);
+            let currFilter = (element.currencies.indexOf($(e.currentTarget).val()) >= 0);
 
             return popFilter || areaFilter || currFilter;
         })));
