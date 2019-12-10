@@ -1,20 +1,17 @@
 .wrapper {
     display: grid;
-    grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+    margin: auto;
+    padding: .1em;
     width: 400px;
     height: 400px;
-    margin: auto;
-    padding: 0.1em;
-
+    grid-template-columns: repeat(8, 1fr);
     border-style: solid;
     border-color: black;
     border-width: 0.2em;
-
 }
 
 .cell {
     background-color: white;
-    padding: 7.25%;
 }
 
 .black {
