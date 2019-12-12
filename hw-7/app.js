@@ -9,6 +9,6 @@ let chessboardHtml = () => {
 }
 
 $("#chessboard").html(chessboardHtml());
-$(".wrapper .cell").click(e => {
-    $(e.currentTarget).toggleClass('black');
+$(".wrapper").click(e => {
+    $(e.target).toggleClass('black');
 });

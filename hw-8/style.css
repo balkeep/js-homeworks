@@ -1,0 +1,12 @@
+div.input-group {
+    min-width: 250px;
+    width: 10%;
+    padding: 1em;
+    margin: auto;
+}
+
+table#exchange-rates {
+    min-width: 550px;
+    width: 40%;
+    margin: auto;
+}

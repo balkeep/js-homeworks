@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+
+    <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css'
+          rel='stylesheet'>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
+
+    <script src="moment.js"></script>
+
+    <link href="style.css" rel="stylesheet">
+
+    <title>hw-8</title>
+</head>
+
+<body>
+<div class="input-group">
+    <label for="date-picker">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Date:</span>
+        </div>
+    </label>
+    <input class="form-control" id="date-picker" type="text">
+</div>
+
+<div>
+    <table class="table table-striped" id="exchange-rates">
+        <thead class="font-weight-bold">
+        <tr>
+            <td class = "text-center" colspan="4">Офіційні курси інозених валют до гривні станом на <span id="date">сьогодні</span></td>
+        </tr>
+        <tr>
+            <td class="id text-center">Id</td>
+            <td class="name text-center">Назва валюти</td>
+            <td class="code text-center">Код валюти</td>
+            <td class="rate text-right">Офіційний курс</td>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+
+<script src="app.js"></script>
+</body>
+
+</html>
