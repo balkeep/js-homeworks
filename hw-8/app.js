@@ -1,3 +1,18 @@
+let renderPage = (date) => {
+    $.ajax({
+        url: "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=" + moment(date, "DD.MM.YYYY")
+            .format("YYYYMMDD") + "&json",
+
+        success: (e) => {
+            $("#exchange-rates > tbody").html(composeTable(e));
+            $("#date").html(date);
+        },
+        error: (e) => {
+            console.log(e);
+        }
+    });
+};
+
 let composeTable = (exchangeRates) => {
     let tbodyHTML = "";
 
@@ -21,27 +36,10 @@ $(document).ready(() => {
             })
 
             .change((e) => {
-                let date = $(e.target).val();
-
-                $.ajax({
-                    url: "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=" + moment(date, "DD.MM.YYYY")
-                        .format("YYYYMMDD") + "&json",
-
-                    success: (exchangeRates) => {
-                        $("#exchange-rates > tbody").html(composeTable(exchangeRates));
-                        $("#date").html(date);
-                    }
-                });
+                renderPage($(e.target).val());
             });
 
     });
 
-    $.ajax({
-        url: "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=" + moment().format("YYYYMMDD") + "&json",
-
-        success: (exchangeRates) => {
-            $("#exchange-rates > tbody").html(composeTable(exchangeRates));
-            $("#date").html(moment().format("DD.MM.YYYY"));
-        }
-    });
+    renderPage(moment().format("DD.MM.YYYY"));
 });
