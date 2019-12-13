@@ -1,45 +1,58 @@
-let renderPage = (date) => {
-    $.ajax({
-        url: "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=" + moment(date, "DD.MM.YYYY")
-            .format("YYYYMMDD") + "&json",
+let dataTable = [];
 
-        success: (e) => {
-            $("#exchange-rates > tbody").html(composeTable(e));
-            $("#date").html(date);
-        },
-        error: (e) => {
-            console.log(e);
+let renderPage = (date) => {
+    let dateOfTable = date ? date : moment().format("YYYYMMDD");
+
+    $.ajax({
+        url: "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=" + dateOfTable + "&json",
+
+        success: (currExchangeData) => {
+            dataTable = currExchangeData;
+            composeTable(dataTable, dateOfTable)
+
+            $("#date-picker")
+                .datepicker({
+                    dateFormat: 'dd.mm.yy',
+                    defaultDate: new Date(),
+                    firstDay: 1 // Monday is first day
+                })
+                .val(moment().format("DD.MM.YYYY"))
+
+
+            $("#currency-selector")
+                .autocomplete({
+                    source: currExchangeData.map((el) => el.cc)
+                })
+                .val("");
         }
     });
 };
 
-let composeTable = (exchangeRates) => {
-    let tbodyHTML = "";
+let composeTable = (inputArr, date, currencies) => {
+    let inputArrFiltered = currencies ? inputArr.filter(currLine => currLine.cc.toLowerCase().indexOf(currencies.toLowerCase()) >= 0) : inputArr;
 
-    for (const counter in exchangeRates) {
-        let rateLine = exchangeRates[counter];
-        tbodyHTML += "<tr><td class='id text-center'>" + (+counter + 1) + "</td><td class='name text-center'>"
-            + rateLine.txt + "</td><td class='code text-center'>" + rateLine.cc + "</td><td class='rate text-right'>" + (+rateLine.rate)
-                .toFixed(2) + "</td></tr>";
+    let tbodyHTML = "";
+    for (const counter in inputArrFiltered) {
+        let rateLine = inputArrFiltered[counter];
+        tbodyHTML += "<tr><td class='id text-center'>" + (+counter + 1)
+            + "</td><td class='name text-center'>" + rateLine.txt
+            + "</td><td class='code text-center'>" + rateLine.cc
+            + "</td><td class='rate text-right'>"
+            + (+rateLine.rate).toFixed(2) + "</td></tr>";
     }
 
-    return tbodyHTML;
+    $("#date").html(moment(date, "YYYYMMDD").format("DD.MM.YYYY"));
+    $("#exchange-rates > tbody").html(tbodyHTML);
 };
 
 $(document).ready(() => {
-    $(() => {
-        $("#date-picker")
-            .datepicker({
-                dateFormat: 'dd.mm.yy',
-                defaultDate: moment().format("DD.MM.YYYY"),
-                firstDay: 1 // Monday is first day
-            })
 
-            .change((e) => {
-                renderPage($(e.target).val());
-            });
+    renderPage();
 
+    $("#date-picker").change((e) => {
+        $("#currency-selector").val("");
+        renderPage(moment($(e.target).val(), "DD.MM.YYYY").format("YYYYMMDD"))
     });
 
-    renderPage(moment().format("DD.MM.YYYY"));
+    $("#currency-selector").change(e => composeTable(dataTable, moment($("#date-picker").val(), "DD.MM.YYYY").format("YYYYMMDD"), $(e.target).val()));
 });

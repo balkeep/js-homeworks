@@ -1,12 +1,17 @@
 div.input-group {
-    min-width: 250px;
-    width: 10%;
-    padding: 1em;
+    min-width: 500px;
+    width: 20%;
     margin: auto;
+    padding: 1em;
+}
+
+div.input-group > label {
+    margin-left: 1em;
 }
 
 table#exchange-rates {
-    min-width: 550px;
-    width: 40%;
+    min-width: 600px;
+    max-width: 900px;
+    width: 80%;
     margin: auto;
 }
