@@ -16,7 +16,7 @@ let renderPage = (date) => {
                     defaultDate: new Date(),
                     firstDay: 1 // Monday is first day
                 })
-                .val(moment(dateOfTable, "YYYYMMDD").format("DD.MM.YYYY"))
+                .val(moment(dateOfTable, "YYYYMMDD").format("DD.MM.YYYY"));
 
 
             $("#currency-selector")
