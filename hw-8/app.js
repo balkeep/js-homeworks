@@ -1,31 +1,48 @@
 let dataTable = [];
 
+let renderInputs = (dataTable, dateOfTable) => {
+    $("#date-picker")
+        .datepicker({
+            dateFormat: 'dd.mm.yy',
+            defaultDate: new Date(),
+            firstDay: 1 // Monday is first day
+        })
+        .val(moment(dateOfTable, "YYYYMMDD").format("DD.MM.YYYY"));
+
+
+    $("#currency-selector")
+        .autocomplete({
+            source: dataTable.map((el) => el.cc)
+        })
+        .val("");
+};
+
 let renderPage = (date) => {
     let dateOfTable = date ? date : moment().format("YYYYMMDD");
+    if (localStorage.getItem(dateOfTable)) {
 
-    $.ajax({
-        url: "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=" + dateOfTable + "&json",
+        dataTable = JSON.parse(localStorage.getItem(dateOfTable));
 
-        success: (currExchangeData) => {
-            dataTable = currExchangeData;
-            composeTable(dataTable, dateOfTable)
-
-            $("#date-picker")
-                .datepicker({
-                    dateFormat: 'dd.mm.yy',
-                    defaultDate: new Date(),
-                    firstDay: 1 // Monday is first day
-                })
-                .val(moment(dateOfTable, "YYYYMMDD").format("DD.MM.YYYY"));
+        composeTable(dataTable, dateOfTable);
+        renderInputs(dataTable, dateOfTable);
 
 
-            $("#currency-selector")
-                .autocomplete({
-                    source: currExchangeData.map((el) => el.cc)
-                })
-                .val("");
-        }
-    });
+
+    } else {
+        $.ajax({
+            url: "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=" + dateOfTable + "&json",
+
+            success: (currExchangeData) => {
+                dataTable = currExchangeData;
+                localStorage.setItem(dateOfTable, JSON.stringify(dataTable));
+
+                composeTable(dataTable, dateOfTable);
+                renderInputs(dataTable, dateOfTable);
+            }
+        });
+    }
+
+
 };
 
 let composeTable = (inputArr, date, currencies) => {

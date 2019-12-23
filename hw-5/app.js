@@ -22,7 +22,6 @@ $(document).ready(function () {
         $.ajax({
             url: "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=" + today + "&json",
             success: function (exchangeRates) {
-                console.log(composeTable(exchangeRates));
 
                 $("#date").html(todayDisplay);
                 $("table.exchange-rates > tbody").html(composeTable(exchangeRates));
